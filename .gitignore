@@ -1,0 +1,7 @@
+Debug/*
+Release/*
+rot13/Debug/*
+rot13/Release/*
+*.ncb
+*.suo
+*.user
