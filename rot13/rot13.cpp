@@ -33,17 +33,17 @@ void rot13encode_asm(unsigned char* buffer, int len)
 {
     __asm
     {
-        mov eax, len;
-loop0:  cmp eax, 0;
-        je exit0;
-        mov ecx, [buffer];
-        mov ecx, [ecx];
-        add cl, 13;
-        mov edx, buffer;
-        mov [edx], cl;
-        inc buffer;
-        dec eax;
-        jmp loop0;
+        mov eax, len      ;
+loop0:  cmp eax, 0        ;
+        je  exit0         ;
+        mov ecx, [buffer] ;
+        mov ecx, [ecx]    ;
+        add cl, 13        ;
+        mov edx, buffer   ;
+        mov [edx], cl     ;
+        inc buffer        ;
+        dec eax           ;
+        jmp loop0         ;
 exit0:
     }
 }
@@ -52,17 +52,17 @@ void rot13decode_asm(unsigned char* buffer, int len)
 {
     __asm
     {
-        mov eax, len;
-loop0:  cmp eax, 0;
-        je exit0;
-        mov ecx, [buffer];
-        mov ecx, [ecx];
-        sub cl, 13;
-        mov edx, buffer;
-        mov [edx], cl;
-        inc buffer;
-        dec eax;
-        jmp loop0;
+        mov eax, len      ;
+loop0:  cmp eax, 0        ;
+        je  exit0         ;
+        mov ecx, [buffer] ;
+        mov ecx, [ecx]    ;
+        sub cl, 13        ;
+        mov edx, buffer   ;
+        mov [edx], cl     ;
+        inc buffer        ;
+        dec eax           ;
+        jmp loop0         ;
 exit0:
     }
 }
@@ -86,9 +86,6 @@ int _tmain(int argc, _TCHAR* argv[])
     
     rot13decode_asm(buffer, 1024);
     testbuffer(buffer, 1024, 0);
-
-
-
     
 	return 0;
 }
