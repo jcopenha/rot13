@@ -86,6 +86,17 @@ int _tmain(int argc, _TCHAR* argv[])
     
     rot13decode_asm(buffer, 1024);
     testbuffer(buffer, 1024, 0);
+
+    // asm version work in simple case
+
+    memset(buffer, 250, 1024);
+    rot13encode_asm(buffer, 1024);
+    testbuffer(buffer, 1024, (unsigned char)(250+13));
+    
+    rot13decode_asm(buffer, 1024);
+    testbuffer(buffer, 1024, 250);
+
+    // asm version works in roll over case
     
 	return 0;
 }
